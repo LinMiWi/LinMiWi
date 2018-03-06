@@ -153,19 +153,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-VUE_Axios_RAP_Plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/20/hello-world/">VUE + Axios 项目中 RAP 插件使用说明</a>
+      <a class="article-title" href="/2017/10/20/VUE_Axios_RAP_Plugin/">VUE + Axios 项目中 RAP 插件使用说明</a>
     </h1>
   
 
         
-        <a href="/2017/10/20/hello-world/" class="archive-article-date">
+        <a href="/2017/10/20/VUE_Axios_RAP_Plugin/" class="archive-article-date">
   	<time datetime="2017-10-20T10:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
 </a>
         
@@ -173,46 +173,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="VUE-Axios-项目中-RAP-插件使用说明"><a href="#VUE-Axios-项目中-RAP-插件使用说明" class="headerlink" title="VUE + Axios 项目中 RAP 插件使用说明"></a>VUE + Axios 项目中 RAP 插件使用说明</h3><p>前言：本插件参考了RAP官方插件实现，由于实际开发中不需要通过MockJs在前端中处理RAP返回的MockJs源数据，所以对MockJs源数据未处理，仅支持RAP返回模拟的Json数据。需要自行处理MockJs源数据的，将下文提到的rapURL中的‘mockjsdata’改为‘mockjs即可’。</p>
-<h4 id="1-插件使用"><a href="#1-插件使用" class="headerlink" title="1. 插件使用"></a>1. 插件使用</h4><h5 id="1-1-引入"><a href="#1-1-引入" class="headerlink" title="1.1 引入"></a>1.1 引入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import axios from &apos;axios&apos;;</div><div class="line">import rap from &apos;../plugins/rap&apos;; //目录替换为实际目录</div></pre></td></tr></table></figure>
-<h5 id="1-2-配置"><a href="#1-2-配置" class="headerlink" title="1.2 配置"></a>1.2 配置</h5><ul>
-<li>1.2.1 说明&amp;举例</li>
-</ul>
-<blockquote>
-<ul>
-<li>rapURL组成：[RAPBaseUrl]/mockjsdata/[ProjectId]<ul>
-<li>rapMode值：0 - 不拦截；   1 - 拦截全部；   2 - 黑名单中的项不拦截；   3 - 仅拦截白名单中的项</li>
-<li>rapFilterHeaders: 【字符串-数组】，RAP不支持的自定义Herder字段Key</li>
-<li>rapFilterMethods: 【字符串-数组】，RAP不支持的Method</li>
-<li>rapWhiteList/rapBlackList: 【字符串/正则-数组】，例：’[\/courses\/\d+$\/i, “courses/33”]’</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">rapURL: &apos;&quot;http://rap.daily.feibo.cc/mockjsdata/4&quot;&apos;,</div><div class="line">rapMode: 3,</div><div class="line">rapWhiteList: &apos;[\/courses\\/\\d+$\/i, &quot;courses/33&quot;]&apos;,   // 是否需要转义‘\’，根据实际需要</div><div class="line">rapBlackList: &apos;[]&apos;,</div><div class="line">rapFilterHeaders: &apos;[&quot;Authorization&quot;]&apos;,</div><div class="line">rapFilterMethods: &apos;[&quot;put&quot;]&apos;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：上面的单引号、双引号、转义‘\’，根据实际需要决定是否使用，比如上面例子是是写在配置文件中，之后通过require引入。</p>
-</blockquote>
-<ul>
-<li>1.2.2 方式一：替换</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rap.config = &#123;</div><div class="line">  rapURL: &apos;http://rap.daily.feibo.cc/mockjsdata/4&apos;,</div><div class="line">  rapMode: 0,</div><div class="line">  rapWhiteList: [],</div><div class="line">  rapBlackList: [],</div><div class="line">  rapFilterHeaders: [],</div><div class="line">  rapFilterMethods: []</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>1.2.3 方式二：更新部分配置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rap.updateConfig(&#123;</div><div class="line">  rapURL: &apos;http://rap.daily.feibo.cc/mockjsdata/4&apos;,</div><div class="line">  rapMode: 0</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h5 id="1-3-使用"><a href="#1-3-使用" class="headerlink" title="1.3 使用"></a>1.3 使用</h5><p>通过Axios的插入器Interceptors使用插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">axios.interceptors.request.use((config) =&gt; &#123;</div><div class="line">  return rap.onFulfilled(config);</div><div class="line">&#125;, rap.onRejected);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：  </p>
-</blockquote>
-<ul>
-<li>个人项目中，如果写成<br>axios.interceptors.request.use(rap.onFulfilled, rap.onRejected);<br>将出错反复需要授权…貌似和this指向有关，虽然我更喜欢这么写！</li>
-<li>rap.onFulfilled为必须调用，rap.onRejected以实际需求决定。</li>
-</ul>
-<h4 id="2-插件源码-rap-js"><a href="#2-插件源码-rap-js" class="headerlink" title="2. 插件源码[rap.js]"></a>2. 插件源码[rap.js]</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * convert url from absolute to relative</div><div class="line"> */</div><div class="line">function convertUrlToRelative(url) &#123;</div><div class="line">  if (url instanceof RegExp) &#123;</div><div class="line">    return url;</div><div class="line">  &#125;</div><div class="line">  if (!url) &#123;</div><div class="line">    throw Error(`Illegal url:$&#123;url&#125;`);</div><div class="line">  &#125;</div><div class="line">  if (url.indexOf(&apos;http://&apos;) &gt; -1) &#123;</div><div class="line">    url = url.substring(url.indexOf(&apos;/&apos;, 7) + 1);</div><div class="line">  &#125; else if (url.indexOf(&apos;https://&apos;) &gt; -1) &#123;</div><div class="line">    url = url.substring(url.indexOf(&apos;/&apos;, 8) + 1);</div><div class="line">  &#125;</div><div class="line">  if (url.charAt(0) !== &apos;/&apos;) &#123;</div><div class="line">    url = `/$&#123;url&#125;`;</div><div class="line">  &#125;</div><div class="line">  return url;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const rap = &#123;</div><div class="line">  config: &#123;</div><div class="line">    rapURL: &apos;http://rap.daily.feibo.cc/mockjsdata/4&apos;,</div><div class="line">    rapMode: 0,</div><div class="line">    rapWhiteList: [],</div><div class="line">    rapBlackList: [],</div><div class="line">    rapFilterHeaders: [],</div><div class="line">    rapFilterMethods: []</div><div class="line">  &#125;,</div><div class="line">  updateConfig(config) &#123;</div><div class="line">    this.config = &#123;</div><div class="line">      ...this.config,</div><div class="line">      ...config</div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  isRap(url) &#123;</div><div class="line">    let isRap = false;</div><div class="line">    const rapMode = this.config.rapMode;</div><div class="line">    if (rapMode === 0) &#123; // disabled</div><div class="line">      isRap = false;</div><div class="line">    &#125; else if (rapMode === 1) &#123; // intercept all requests</div><div class="line">      isRap = true;</div><div class="line">    &#125; else if (rapMode === 2 || rapMode === 3) &#123; // black/white list mode</div><div class="line">      const blackMode = rapMode === 2;</div><div class="line">      isRap = blackMode;</div><div class="line">      const list = blackMode ? this.config.rapBlackList : this.config.rapWhiteList;</div><div class="line">      for (let i = 0; i &lt; list.length; i += 1) &#123;</div><div class="line">        const o = convertUrlToRelative(list[i]);</div><div class="line">        // console.info(`reg:$&#123;o&#125;`);</div><div class="line">        // console.info(`reg type:$&#123;typeof o&#125;`);</div><div class="line">        // console.info(`url:$&#123;url&#125;`);</div><div class="line">        if ((typeof o === &apos;string&apos; &amp;&amp; (url.indexOf(o) &gt;= 0 || o.indexOf(url) &gt;= 0))</div><div class="line">          || (typeof o === &apos;object&apos; &amp;&amp; o instanceof RegExp &amp;&amp; o.test(url))) &#123;</div><div class="line">          // 正则匹配规则最好不要用/g，否则第一次匹配true，第二次匹配false，系lastIndex引起</div><div class="line">          isRap = !blackMode;</div><div class="line">          break;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    return isRap;</div><div class="line">  &#125;,</div><div class="line">  onFulfilled(config) &#123;</div><div class="line">    if (this.isRap(config.url)) &#123;</div><div class="line">      config.url = config.url.replace(config.baseURL, this.config.rapURL);</div><div class="line">      config.baseURL = this.config.rapURL;</div><div class="line"></div><div class="line">      //处理RAP上不支持的Header</div><div class="line">      if (config.headers &amp;&amp; config.headers.common &amp;&amp; this.config.rapFilterHeaders.length &gt; 0) &#123;</div><div class="line">        this.config.rapFilterHeaders.forEach((value) =&gt; &#123;</div><div class="line">          delete config.headers.common[value];</div><div class="line">        &#125;);</div><div class="line">        // delete config.headers.common.Authorization; // RAP上不需要Authorization字段，否则报错</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      //处理RAP上不支持的Method</div><div class="line">      if (this.config.rapFilterMethods &amp;&amp; this.config.rapFilterMethods.length &gt; 0) &#123;</div><div class="line">        this.config.rapFilterMethods.forEach((value) =&gt; &#123;</div><div class="line">          if (config.method === value) &#123;</div><div class="line">            config.method = &apos;get&apos;;</div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    return config;</div><div class="line">  &#125;,</div><div class="line">  onRejected(error) &#123;</div><div class="line">    return Promise.reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default rap;</div></pre></td></tr></table></figure>
-<h4 id="3-参考资料"><a href="#3-参考资料" class="headerlink" title="3. 参考资料"></a>3. 参考资料</h4><p><a href="https://github.com/thx/RAP/wiki/user_manual_cn#%E6%88%91%E4%BD%BF%E7%94%A8%E7%9A%84angularjs%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8rap%E6%8F%92%E4%BB%B6%EF%BC%9F" target="_blank" rel="noopener">RAP用户手册</a><br><a href="https://github.com/xiaomaojames/ng-rap" target="_blank" rel="noopener">ng-rap插件源码</a><br><a href="https://github.com/janmi/vue-rap-mock" target="_blank" rel="noopener">服务器代理方式实现VUE上使用RAP_源码</a><br><a href="https://github.com/tlzzu/rap-axios-plugin" target="_blank" rel="noopener">VUE + Axios上通过XMLHttpRequest使用RAP_源码</a></p>
-
+        <h3 id="VUE-Axios-项目中-RAP-插件使用说明"><a href="#VUE-Axios-项目中-RAP-插件使用说明" class="headerlink" title="VUE + Axios 项目中 RAP 插件使用说明"></a>VUE + Axios 项目中 RAP 插件使用说明</h3><p>前言：本插件参考了RAP官方插件实现，由于实际开发中不需要通过MockJs在前端中处理RAP返回的MockJs源数据，所以对MockJs源数据未处理，仅支持RAP返回模拟的Json数据。需要自行处理MockJs源数据的，将下文提到的rapURL中的‘mockjsdata’改为‘mockjs即可’。<br>
+        
+          <a class="article-more-a" href="/2017/10/20/VUE_Axios_RAP_Plugin/#more">more >></a>
+        
       
 
       
@@ -247,7 +211,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/20/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/20/VUE_Axios_RAP_Plugin/">展开全文 >></a>
         </p>
       
 
@@ -277,19 +241,19 @@
 
 
   
-    <article id="post-VUE_Axios_RAP_Plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Hello-World" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/31/VUE_Axios_RAP_Plugin/">Hello World</a>
+      <a class="article-title" href="/2014/08/31/Hello-World/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2014/08/31/VUE_Axios_RAP_Plugin/" class="archive-article-date">
+        <a href="/2014/08/31/Hello-World/" class="archive-article-date">
   	<time datetime="2014-08-31T08:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-08-31</time>
 </a>
         
@@ -302,7 +266,7 @@
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2014/08/31/VUE_Axios_RAP_Plugin/#more">more >></a>
+          <a class="article-more-a" href="/2014/08/31/Hello-World/#more">more >></a>
         
       
 
@@ -330,7 +294,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/08/31/VUE_Axios_RAP_Plugin/">展开全文 >></a>
+          <a class="article-more-a" href="/2014/08/31/Hello-World/">展开全文 >></a>
         </p>
       
 
