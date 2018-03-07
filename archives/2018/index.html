@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://linmiwi.github.io">
-  <title>VUE + Axios 项目中 RAP 插件使用说明 | Miwi.Lin&#39;s Blog | Miwi的博客</title>
+  <title>Archives: 2018 | Miwi.Lin&#39;s Blog | Miwi的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言：本插件参考了RAP官方插件实现，由于实际开发中不需要通过MockJs在前端中处理RAP返回的MockJs源数据，所以对MockJs源数据未处理，仅支持RAP返回模拟的Json数据。">
-<meta name="keywords" content="JavaScript,VUE,Axios,RAP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="VUE + Axios 项目中 RAP 插件使用说明">
-<meta property="og:url" content="http://linmiwi.github.io/2017/10/20/VUE_Axios_RAP_Plugin/index.html">
+  <meta name="description" content="Android | Java | Html5 | JavaScript | Angularjs | VUE | PHP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Miwi.Lin&#39;s Blog | Miwi的博客">
+<meta property="og:url" content="http://linmiwi.github.io/archives/2018/index.html">
 <meta property="og:site_name" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta property="og:description" content="前言：本插件参考了RAP官方插件实现，由于实际开发中不需要通过MockJs在前端中处理RAP返回的MockJs源数据，所以对MockJs源数据未处理，仅支持RAP返回模拟的Json数据。">
+<meta property="og:description" content="Android | Java | Html5 | JavaScript | Angularjs | VUE | PHP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T10:20:11.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VUE + Axios 项目中 RAP 插件使用说明">
-<meta name="twitter:description" content="前言：本插件参考了RAP官方插件实现，由于实际开发中不需要通过MockJs在前端中处理RAP返回的MockJs源数据，所以对MockJs源数据未处理，仅支持RAP返回模拟的Json数据。">
+<meta name="twitter:title" content="Miwi.Lin&#39;s Blog | Miwi的博客">
+<meta name="twitter:description" content="Android | Java | Html5 | JavaScript | Angularjs | VUE | PHP">
   
     <link rel="alternative" href="/atom.xml" title="Miwi.Lin&#39;s Blog | Miwi的博客" type="application/atom+xml">
   
@@ -153,249 +151,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-VUE_Axios_RAP_Plugin" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      VUE + Axios 项目中 RAP 插件使用说明
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/01/23/JS_Emoji_and_Colorpicker/" class="archive-article-date">
+  	<time datetime="2018-01-23T07:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/01/23/JS_Emoji_and_Colorpicker/">Javascript Emoji使用 &amp; Colorpicker颜色选择器使用</a>
     </h1>
   
 
-        
-        <a href="/2017/10/20/VUE_Axios_RAP_Plugin/" class="archive-article-date">
-  	<time datetime="2017-10-20T10:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：本插件参考了RAP官方插件实现，由于实际开发中不需要通过MockJs在前端中处理RAP返回的MockJs源数据，所以对MockJs源数据未处理，仅支持RAP返回模拟的Json数据。<a id="more"></a>需要自行处理MockJs源数据的，将下文提到的rapURL中的‘mockjsdata’改为‘mockjs即可’。</p>
-<h4 id="1-插件使用"><a href="#1-插件使用" class="headerlink" title="1. 插件使用"></a>1. 插件使用</h4><h5 id="1-1-引入"><a href="#1-1-引入" class="headerlink" title="1.1 引入"></a>1.1 引入</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</div><div class="line"><span class="keyword">import</span> rap <span class="keyword">from</span> <span class="string">'../plugins/rap'</span>; <span class="comment">//目录替换为实际目录</span></div></pre></td></tr></table></figure>
-<h5 id="1-2-配置"><a href="#1-2-配置" class="headerlink" title="1.2 配置"></a>1.2 配置</h5><ul>
-<li>1.2.1 说明&amp;举例</li>
-</ul>
-<blockquote>
-<ul>
-<li>rapURL组成：[RAPBaseUrl]/mockjsdata/[ProjectId]<ul>
-<li>rapMode值：0 - 不拦截；   1 - 拦截全部；   2 - 黑名单中的项不拦截；   3 - 仅拦截白名单中的项</li>
-<li>rapFilterHeaders: 【字符串-数组】，RAP不支持的自定义Herder字段Key</li>
-<li>rapFilterMethods: 【字符串-数组】，RAP不支持的Method</li>
-<li>rapWhiteList/rapBlackList: 【字符串/正则-数组】，例：’[\/courses\/\d+$\/i, “courses/33”]’</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">rapURL: <span class="string">'"http://rap.host.com/mockjsdata/4"'</span>,</div><div class="line"><span class="attr">rapMode</span>: <span class="number">3</span>,</div><div class="line"><span class="attr">rapWhiteList</span>: <span class="string">'[\/courses\\/\\d+$\/i, "courses/33"]'</span>,   <span class="comment">// 是否需要转义‘\’，根据实际需要</span></div><div class="line">rapBlackList: <span class="string">'[]'</span>,</div><div class="line"><span class="attr">rapFilterHeaders</span>: <span class="string">'["Authorization"]'</span>,</div><div class="line"><span class="attr">rapFilterMethods</span>: <span class="string">'["put"]'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：上面的单引号、双引号、转义‘\’，根据实际需要决定是否使用，比如上面例子是是写在配置文件中，之后通过require引入。</p>
-</blockquote>
-<ul>
-<li>1.2.2 方式一：替换</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rap.config = &#123;</div><div class="line">  <span class="attr">rapURL</span>: <span class="string">'http://rap.host.com/mockjsdata/4'</span>,</div><div class="line">  <span class="attr">rapMode</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">rapWhiteList</span>: [],</div><div class="line">  <span class="attr">rapBlackList</span>: [],</div><div class="line">  <span class="attr">rapFilterHeaders</span>: [],</div><div class="line">  <span class="attr">rapFilterMethods</span>: []</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>1.2.3 方式二：更新部分配置</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rap.updateConfig(&#123;</div><div class="line">  <span class="attr">rapURL</span>: <span class="string">'http://rap.host.com/mockjsdata/4'</span>,</div><div class="line">  <span class="attr">rapMode</span>: <span class="number">0</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h5 id="1-3-使用"><a href="#1-3-使用" class="headerlink" title="1.3 使用"></a>1.3 使用</h5><p>通过Axios的插入器Interceptors使用插件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">axios.interceptors.request.use(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> rap.onFulfilled(config);</div><div class="line">&#125;, rap.onRejected);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：  </p>
-</blockquote>
-<ul>
-<li>个人项目中，如果写成<br>axios.interceptors.request.use(rap.onFulfilled, rap.onRejected);<br>将出错反复需要授权…貌似和this指向有关，虽然我更喜欢这么写！</li>
-<li>rap.onFulfilled为必须调用，rap.onRejected以实际需求决定。</li>
-</ul>
-<h4 id="2-插件源码-rap-js"><a href="#2-插件源码-rap-js" class="headerlink" title="2. 插件源码[rap.js]"></a>2. 插件源码[rap.js]</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * convert url from absolute to relative</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">convertUrlToRelative</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (url <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;</div><div class="line">    <span class="keyword">return</span> url;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (!url) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">`Illegal url:<span class="subst">$&#123;url&#125;</span>`</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (url.indexOf(<span class="string">'http://'</span>) &gt; <span class="number">-1</span>) &#123;</div><div class="line">    url = url.substring(url.indexOf(<span class="string">'/'</span>, <span class="number">7</span>) + <span class="number">1</span>);</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url.indexOf(<span class="string">'https://'</span>) &gt; <span class="number">-1</span>) &#123;</div><div class="line">    url = url.substring(url.indexOf(<span class="string">'/'</span>, <span class="number">8</span>) + <span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (url.charAt(<span class="number">0</span>) !== <span class="string">'/'</span>) &#123;</div><div class="line">    url = <span class="string">`/<span class="subst">$&#123;url&#125;</span>`</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> url;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> rap = &#123;</div><div class="line">  <span class="attr">config</span>: &#123;</div><div class="line">    <span class="attr">rapURL</span>: <span class="string">'http://rap.host.com/mockjsdata/4'</span>,</div><div class="line">    <span class="attr">rapMode</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">rapWhiteList</span>: [],</div><div class="line">    <span class="attr">rapBlackList</span>: [],</div><div class="line">    <span class="attr">rapFilterHeaders</span>: [],</div><div class="line">    <span class="attr">rapFilterMethods</span>: []</div><div class="line">  &#125;,</div><div class="line">  updateConfig(config) &#123;</div><div class="line">    <span class="keyword">this</span>.config = &#123;</div><div class="line">      ...this.config,</div><div class="line">      ...config</div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  isRap(url) &#123;</div><div class="line">    <span class="keyword">let</span> isRap = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">const</span> rapMode = <span class="keyword">this</span>.config.rapMode;</div><div class="line">    <span class="keyword">if</span> (rapMode === <span class="number">0</span>) &#123; <span class="comment">// disabled</span></div><div class="line">      isRap = <span class="literal">false</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (rapMode === <span class="number">1</span>) &#123; <span class="comment">// intercept all requests</span></div><div class="line">      isRap = <span class="literal">true</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (rapMode === <span class="number">2</span> || rapMode === <span class="number">3</span>) &#123; <span class="comment">// black/white list mode</span></div><div class="line">      <span class="keyword">const</span> blackMode = rapMode === <span class="number">2</span>;</div><div class="line">      isRap = blackMode;</div><div class="line">      <span class="keyword">const</span> list = blackMode ? <span class="keyword">this</span>.config.rapBlackList : <span class="keyword">this</span>.config.rapWhiteList;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; list.length; i += <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">const</span> o = convertUrlToRelative(list[i]);</div><div class="line">        <span class="comment">// console.info(`reg:$&#123;o&#125;`);</span></div><div class="line">        <span class="comment">// console.info(`reg type:$&#123;typeof o&#125;`);</span></div><div class="line">        <span class="comment">// console.info(`url:$&#123;url&#125;`);</span></div><div class="line">        <span class="keyword">if</span> ((<span class="keyword">typeof</span> o === <span class="string">'string'</span> &amp;&amp; (url.indexOf(o) &gt;= <span class="number">0</span> || o.indexOf(url) &gt;= <span class="number">0</span>))</div><div class="line">          || (<span class="keyword">typeof</span> o === <span class="string">'object'</span> &amp;&amp; o <span class="keyword">instanceof</span> <span class="built_in">RegExp</span> &amp;&amp; o.test(url))) &#123;</div><div class="line">          <span class="comment">// 正则匹配规则最好不要用/g，否则第一次匹配true，第二次匹配false，系lastIndex引起</span></div><div class="line">          isRap = !blackMode;</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> isRap;</div><div class="line">  &#125;,</div><div class="line">  onFulfilled(config) &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isRap(config.url)) &#123;</div><div class="line">      config.url = config.url.replace(config.baseURL, <span class="keyword">this</span>.config.rapURL);</div><div class="line">      config.baseURL = <span class="keyword">this</span>.config.rapURL;</div><div class="line"></div><div class="line">      <span class="comment">//处理RAP上不支持的Header</span></div><div class="line">      <span class="keyword">if</span> (config.headers &amp;&amp; config.headers.common &amp;&amp; <span class="keyword">this</span>.config.rapFilterHeaders.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.config.rapFilterHeaders.forEach(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</div><div class="line">          <span class="keyword">delete</span> config.headers.common[value];</div><div class="line">        &#125;);</div><div class="line">        <span class="comment">// delete config.headers.common.Authorization; // RAP上不需要Authorization字段，否则报错</span></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="comment">//处理RAP上不支持的Method</span></div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.config.rapFilterMethods &amp;&amp; <span class="keyword">this</span>.config.rapFilterMethods.length &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.config.rapFilterMethods.forEach(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</div><div class="line">          <span class="keyword">if</span> (config.method === value) &#123;</div><div class="line">            config.method = <span class="string">'get'</span>;</div><div class="line">          &#125;</div><div class="line">        &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> config;</div><div class="line">  &#125;,</div><div class="line">  onRejected(error) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> rap;</div></pre></td></tr></table></figure>
-<h4 id="3-参考资料"><a href="#3-参考资料" class="headerlink" title="3. 参考资料"></a>3. 参考资料</h4><p><a href="https://github.com/thx/RAP/wiki/user_manual_cn#%E6%88%91%E4%BD%BF%E7%94%A8%E7%9A%84angularjs%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8rap%E6%8F%92%E4%BB%B6%EF%BC%9F" target="_blank" rel="noopener">RAP用户手册</a><br><a href="https://github.com/xiaomaojames/ng-rap" target="_blank" rel="noopener">ng-rap插件源码</a><br><a href="https://github.com/janmi/vue-rap-mock" target="_blank" rel="noopener">服务器代理方式实现VUE上使用RAP_源码</a><br><a href="https://github.com/tlzzu/rap-axios-plugin" target="_blank" rel="noopener">VUE + Axios上通过XMLHttpRequest使用RAP_源码</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>您一定是个帅哥，       要不也是个美女！<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://chuantu.biz/t6/247/1520322943x-1404755492.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://chuantu.biz/t6/247/1520322861x-1404755492.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Emoji</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RAP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Colorpicker</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://linmiwi.github.io/2017/10/20/VUE_Axios_RAP_Plugin/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/10/25/TypeScript_info/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          TypeScript相关学习资料
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/01/25/RxJava_info/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">RxJava学习资料</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-插件使用"><span class="toc-number">1.</span> <span class="toc-text">1. 插件使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-引入"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-配置"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-使用"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-插件源码-rap-js"><span class="toc-number">2.</span> <span class="toc-text">2. 插件源码[rap.js]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-参考资料"><span class="toc-number">3.</span> <span class="toc-text">3. 参考资料</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -418,8 +235,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
