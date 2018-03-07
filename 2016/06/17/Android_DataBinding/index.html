@@ -8,13 +8,11 @@
   <link rel="dns-prefetch" href="http://linmiwi.github.io">
   <title>Android DataBinding学习分享 | Miwi.Lin&#39;s Blog | Miwi的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先看图     上图展示了DataBinding做的事，但解决了 Android UI 编程的一个痛点（findViewById），可以说官方原生支持 MVVM 。     Data Binding 框架如果能够推广开来，也许 RoboGuice、ButterKnife 这样的依赖注入框架会慢慢失去市场，因为在 Java 代码中直接使用 View 变量的情况会越来越少。">
-<meta name="keywords" content="Android,DataBinding">
+  <meta name="keywords" content="Android,DataBinding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android DataBinding学习分享">
 <meta property="og:url" content="http://linmiwi.github.io/2016/06/17/Android_DataBinding/index.html">
 <meta property="og:site_name" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta property="og:description" content="先看图     上图展示了DataBinding做的事，但解决了 Android UI 编程的一个痛点（findViewById），可以说官方原生支持 MVVM 。     Data Binding 框架如果能够推广开来，也许 RoboGuice、ButterKnife 这样的依赖注入框架会慢慢失去市场，因为在 Java 代码中直接使用 View 变量的情况会越来越少。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://linmiwi.github.io/assets/databinding/mvp.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/databinding/mvvm.png">
@@ -22,10 +20,9 @@
 <meta property="og:image" content="https://linmiwi.github.io/assets/databinding/20160618113731.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/databinding/20160618113829.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/databinding/20160618113033.png">
-<meta property="og:updated_time" content="2018-03-07T02:49:04.533Z">
+<meta property="og:updated_time" content="2018-03-07T02:56:09.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android DataBinding学习分享">
-<meta name="twitter:description" content="先看图     上图展示了DataBinding做的事，但解决了 Android UI 编程的一个痛点（findViewById），可以说官方原生支持 MVVM 。     Data Binding 框架如果能够推广开来，也许 RoboGuice、ButterKnife 这样的依赖注入框架会慢慢失去市场，因为在 Java 代码中直接使用 View 变量的情况会越来越少。">
 <meta name="twitter:image" content="https://linmiwi.github.io/assets/databinding/mvp.png">
   
     <link rel="alternative" href="/atom.xml" title="Miwi.Lin&#39;s Blog | Miwi的博客" type="application/atom+xml">
@@ -181,9 +178,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>先看图<br><img src="https://linmiwi.github.io/assets/databinding/mvp.png" alt=""><br><img src="https://linmiwi.github.io/assets/databinding/mvvm.png" alt="">    </p>
+<p><img src="https://linmiwi.github.io/assets/databinding/mvp.png" alt=""><a id="more"></a><br><img src="https://linmiwi.github.io/assets/databinding/mvvm.png" alt="">    </p>
 <h2 id="上图展示了DataBinding做的事，但解决了-Android-UI-编程的一个痛点（findViewById），可以说官方原生支持-MVVM-。"><a href="#上图展示了DataBinding做的事，但解决了-Android-UI-编程的一个痛点（findViewById），可以说官方原生支持-MVVM-。" class="headerlink" title="上图展示了DataBinding做的事，但解决了 Android UI 编程的一个痛点（findViewById），可以说官方原生支持 MVVM 。    "></a>上图展示了DataBinding做的事，但解决了 Android UI 编程的一个痛点（findViewById），可以说官方<strong>原生支持</strong> MVVM 。    </h2><p><img src="https://linmiwi.github.io/assets/databinding/VLhXURHL9rGlxNYe9ydqVg.png" alt=""></p>
-<p>Data Binding 框架如果能够推广开来，也许 <em>RoboGuice、ButterKnife</em> 这样的依赖注入框架会慢慢失去市场，因为在 Java 代码中直接使用 <code>View</code> 变量的情况会越来越少。<br><a id="more"></a></p>
+<p>Data Binding 框架如果能够推广开来，也许 <em>RoboGuice、ButterKnife</em> 这样的依赖注入框架会慢慢失去市场，因为在 Java 代码中直接使用 <code>View</code> 变量的情况会越来越少。</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>新建一个 Project，确保 <a href="build.gradle#L8">Android 的 Gradle 插件</a>版本不低于 <strong>1.5.0-alpha1</strong>：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">classpath <span class="string">'com.android.tools.build:gradle:1.5.0'</span></div></pre></td></tr></table></figure>
 <p>然后修改对应模块（Module）的 <a href="app/build.gradle#L7-L9">build.gradle</a>：</p>
@@ -571,8 +568,8 @@
     </a>
   
   
-    <a href="/2016/01/25/RxJava_info/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">RxJava学习资料</div>
+    <a href="/2016/06/16/Android_Dagger2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dagger2学习分享</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -711,27 +708,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Emoji</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Colorpicker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,6 +717,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Unit Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jasmine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,11 +768,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">Emoji</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+                <a href="javascript:void(0)" class="js-tag color2">Colorpicker</a>
               </li>
              
               <li class="article-tag-list-item">
