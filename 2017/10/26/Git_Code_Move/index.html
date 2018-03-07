@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://linmiwi.github.io">
-  <title>Tag: TypeScript | Miwi.Lin&#39;s Blog | Miwi的博客</title>
+  <title>Git项目仓库迁移说明 | Miwi.Lin&#39;s Blog | Miwi的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android | Java | Html5 | JavaScript | Angularjs | VUE | PHP">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta property="og:url" content="http://linmiwi.github.io/tags/TypeScript/index.html">
+  <meta name="description" content="迁移主要是针对A账户仓库和pm账户仓库存在相同仓库名，且为了遵循Git流程标准，仅保留最新代码分支到新仓库的相关操作。对于pm仓库没有同名仓库，或A仓库分支、TAG需要全部保留的，请直接通过Git转移仓库拥有者。">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git项目仓库迁移说明">
+<meta property="og:url" content="http://linmiwi.github.io/2017/10/26/Git_Code_Move/index.html">
 <meta property="og:site_name" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta property="og:description" content="Android | Java | Html5 | JavaScript | Angularjs | VUE | PHP">
+<meta property="og:description" content="迁移主要是针对A账户仓库和pm账户仓库存在相同仓库名，且为了遵循Git流程标准，仅保留最新代码分支到新仓库的相关操作。对于pm仓库没有同名仓库，或A仓库分支、TAG需要全部保留的，请直接通过Git转移仓库拥有者。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-07T02:28:21.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta name="twitter:description" content="Android | Java | Html5 | JavaScript | Angularjs | VUE | PHP">
+<meta name="twitter:title" content="Git项目仓库迁移说明">
+<meta name="twitter:description" content="迁移主要是针对A账户仓库和pm账户仓库存在相同仓库名，且为了遵循Git流程标准，仅保留最新代码分支到新仓库的相关操作。对于pm仓库没有同名仓库，或A仓库分支、TAG需要全部保留的，请直接通过Git转移仓库拥有者。">
   
     <link rel="alternative" href="/atom.xml" title="Miwi.Lin&#39;s Blog | Miwi的博客" type="application/atom+xml">
   
@@ -151,64 +153,222 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Git_Code_Move" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/25/TypeScript_info/" class="archive-article-date">
-  	<time datetime="2017-10-25T02:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/25/TypeScript_info/">TypeScript相关学习资料</a>
+    <h1 class="article-title" itemprop="name">
+      Git项目仓库迁移说明
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/26/Git_Code_Move/" class="archive-article-date">
+  	<time datetime="2017-10-26T05:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>迁移主要是针对A账户仓库和pm账户仓库存在相同仓库名，且为了遵循Git流程标准，仅保留最新代码分支到新仓库的相关操作。<br>对于pm仓库没有同名仓库，或A仓库分支、TAG需要全部保留的，请直接通过Git转移仓库拥有者。<br><a id="more"></a></p>
+<h4 id="1-迁移步骤"><a href="#1-迁移步骤" class="headerlink" title="1. 迁移步骤"></a>1. 迁移步骤</h4><h5 id="1-1-通知PM做备份"><a href="#1-1-通知PM做备份" class="headerlink" title="1.1. 通知PM做备份"></a>1.1. 通知PM做备份</h5><p>确保所有代码都已提交的情况下，通知PM做如下操作：</p>
+<ul>
+<li><p>由PM对仓库重命名，增加 ‘.bak’ 为后缀。<br>例：[仓库名]  -&gt; [仓库名].bak</p>
+</li>
+<li><p>新建[仓库名]仓库。</p>
+</li>
+</ul>
+<h5 id="1-2-本地最新代码仓库设置pm远程地址"><a href="#1-2-本地最新代码仓库设置pm远程地址" class="headerlink" title="1.2. 本地最新代码仓库设置pm远程地址"></a>1.2. 本地最新代码仓库设置pm远程地址</h5><ul>
+<li>方式一：替换设置<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url [host_name] [git_url]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例：git remote set-url origin <a href="http://192.168.45.4:3000/pm/[仓库名].git" target="_blank" rel="noopener">http://192.168.45.4:3000/pm/[仓库名].git</a><br>【说明】这种操作会替换origin关联的远程地址。如果已经没有关联A账户仓库的必要，推荐使用这种方式。</p>
+<ul>
+<li>方式二：添加设置<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add [host_name] [git_url]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例：git remote add pm <a href="http://192.168.45.4:3000/pm/[仓库名].git" target="_blank" rel="noopener">http://192.168.45.4:3000/pm/[仓库名].git</a><br>【说明】这种操作会添加pm关联的远程地址，好处是origin继续关联原有的远程仓库。</p>
+<h5 id="1-3-提交最新代码的分支到pm仓库"><a href="#1-3-提交最新代码的分支到pm仓库" class="headerlink" title="1.3. 提交最新代码的分支到pm仓库"></a>1.3. 提交最新代码的分支到pm仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push [host_name] [branch_name]</div></pre></td></tr></table></figure>
+<p>例：git push -u pm dev<br>【说明】例子将本地的dev分支推送到pm主机，同时通过<figure class="highlight plain"><figcaption><span>push```提交了。    </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">到这里，最新代码迁移到pm仓库就完成了，后续开发按照Git规范进行操作。</div><div class="line"></div><div class="line">&gt;【提醒】此时本地仓库还存在着历史 分支 和 TAG ，为了避免过后错误提交，建议：清理或重新clone pm账户仓库。</div><div class="line"></div><div class="line">#### 2. 可能涉及的其他操作</div><div class="line"></div><div class="line">##### 2.1 重命名远程分支</div><div class="line">重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。</div></pre></td></tr></table></figure></p>
+<p>git push –delete origin [branch_name]             // 删除远程分支<br>git branch -m [old_branch_name] [new_branch_name]  // 重命名本地分支<br>git push origin [branch_name]                      // 推送本地分支到远程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### 2.2 其他操作</div></pre></td></tr></table></figure></p>
+<p>git remote -v                   // 本地仓库的远程信息<br>git branch -a                   // 仓库分支信息<br>git merge –no-ff [branch_name] // 合并指定分支到当前分支，–no-ff保留分支信息<br>git remote rm [host_name]       // 移除本地缓存的远程信息<br>git branch -D [branch_name]     // 删除本地分支 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### 2.3 让.gitignore生效</div><div class="line">改动过.gitignore文件之后，在项目根目录下运行:</div></pre></td></tr></table></figure>
+<p>git rm -r –cached .<br>git add .<br>git commit -m “[content]”<br>```</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您一定是个帅哥，       要不也是个美女！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://chuantu.biz/t6/247/1520322943x-1404755492.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://chuantu.biz/t6/247/1520322861x-1404755492.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TypeScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://linmiwi.github.io/2017/10/26/Git_Code_Move/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/01/23/JS_Emoji_and_Colorpicker/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Javascript Emoji使用 &amp; Colorpicker颜色选择器使用
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/10/25/TypeScript_info/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TypeScript相关学习资料</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-迁移步骤"><span class="toc-number">1.</span> <span class="toc-text">1. 迁移步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-通知PM做备份"><span class="toc-number">1.1.</span> <span class="toc-text">1.1. 通知PM做备份</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-本地最新代码仓库设置pm远程地址"><span class="toc-number">1.2.</span> <span class="toc-text">1.2. 本地最新代码仓库设置pm远程地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3-提交最新代码的分支到pm仓库"><span class="toc-number">1.3.</span> <span class="toc-text">1.3. 提交最新代码的分支到pm仓库</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -231,9 +391,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
