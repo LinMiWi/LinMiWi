@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://linmiwi.github.io/assets/dagger2/1833901-35d80b35a34d576e.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/dagger2/1833901-aafb18d86757adc5.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/dagger2/1833901-836ab3bcbb7acffe.png">
-<meta property="og:updated_time" content="2018-03-07T03:41:37.350Z">
+<meta property="og:updated_time" content="2018-03-07T03:42:53.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Dagger2学习分享">
 <meta name="twitter:description" content="什么是Dagger2安卓应用在初始化对象的时候经常需要处理各种依赖关系。比如说网络访问中使用Retrofit，Gson，本地存储中使用shared preference。无一例外，我们都都需要在使用它们的地方进行实例对象构建，而且其中还可能存在着各种各样的继承依赖关系。依赖注入（Dependency Injection，简称DI）是用于削减计算机程序的耦合问题的一个法则。对象在被创建的时候，由一个">
@@ -185,8 +185,8 @@
 <p>关于依赖注入，看个简单的比较图，左边是没有依赖注入的实现方式，右边是手动的依赖注入：<br><img src="https://linmiwi.github.io/assets/dagger2/android-new-project-from-0-dagger-di.png" alt=""></p>
 <blockquote>
 <p>关于依赖注入的优势可以参考这篇文章<a href="http://blog.zhaiyifan.cn/2016/03/27/android-new-project-from-0-p4/" target="_blank" rel="noopener">从零开始的Android新项目4 - Dagger2篇</a><br>关于Dagger1和Dagger2区别可以看下<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0519/2892.html" target="_blank" rel="noopener">详解Dagger2</a></p>
-<h2 id="Dagger2的优点"><a href="#Dagger2的优点" class="headerlink" title="Dagger2的优点"></a>Dagger2的优点</h2></blockquote>
-<ul>
+</blockquote>
+<h2 id="Dagger2的优点"><a href="#Dagger2的优点" class="headerlink" title="Dagger2的优点"></a>Dagger2的优点</h2><ul>
 <li><strong>全局对象实例的简单访问方式</strong><br>  和ButterKnife 库定义了view，事件处理以及资源的引用一样，Dagger2 提供全局对象引用的简易访问方式。声明了单例的实例都可以使用 <code>@inject</code> 进行访问。比如下面的MyTwitterApiClient 和SharedPreferences 的实例：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">   <span class="meta">@Inject</span></div><div class="line">   MyTwitterApiClient mTwitterApiClient;</div><div class="line"></div><div class="line">   <span class="meta">@Inject</span></div><div class="line">   SharedPreferences sharedPreferences;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstance)</span> </span>&#123;</div><div class="line">       <span class="comment">// assign singleton instances to fields</span></div><div class="line">       InjectorClass.inject(<span class="keyword">this</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -647,11 +647,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,7 +683,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
+                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,11 +691,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
+                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,6 +703,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RxJava</a>
               </li>
              
@@ -715,15 +715,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Axios</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">

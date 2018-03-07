@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://linmiwi.github.io">
   <title>RxJava学习资料 | Miwi.Lin&#39;s Blog | Miwi的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##一、入门入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。给 Android 开发者的 RxJava 详解——扔物线      源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解RxJava基本流程和lift源码分析">
+  <meta name="description" content="一、入门入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。给 Android 开发者的 RxJava 详解——扔物线      源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解RxJava基本流程和lift源码分析">
 <meta name="keywords" content="RxJava,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RxJava学习资料">
 <meta property="og:url" content="http://linmiwi.github.io/2016/01/25/RxJava_info/index.html">
 <meta property="og:site_name" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta property="og:description" content="##一、入门入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。给 Android 开发者的 RxJava 详解——扔物线      源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解RxJava基本流程和lift源码分析">
+<meta property="og:description" content="一、入门入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。给 Android 开发者的 RxJava 详解——扔物线      源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解RxJava基本流程和lift源码分析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T02:08:31.711Z">
+<meta property="og:updated_time" content="2018-03-07T03:46:01.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJava学习资料">
-<meta name="twitter:description" content="##一、入门入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。给 Android 开发者的 RxJava 详解——扔物线      源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解RxJava基本流程和lift源码分析">
+<meta name="twitter:description" content="一、入门入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。给 Android 开发者的 RxJava 详解——扔物线      源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解RxJava基本流程和lift源码分析">
   
     <link rel="alternative" href="/atom.xml" title="Miwi.Lin&#39;s Blog | Miwi的博客" type="application/atom+xml">
   
@@ -173,14 +173,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##一、入门<br>入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。<br><a href="http://gank.io/post/560e15be2dca930e00da1083#toc_8" target="_blank" rel="noopener">给 Android 开发者的 RxJava 详解</a><br>——扔物线    </p>
+        <h2 id="一、入门"><a href="#一、入门" class="headerlink" title="一、入门"></a>一、入门</h2><p>入门必看，对RxJava的概念以及基本特性做了详细介绍，带动图，同时分析了部分源码和原理，思路较清晰。<br><a href="http://gank.io/post/560e15be2dca930e00da1083#toc_8" target="_blank" rel="noopener">给 Android 开发者的 RxJava 详解</a><br>——扔物线    </p>
 <hr>
 <p>源码分析，带动图，举例分析每一步的执行步骤，进一步加深理解<br><a href="http://blog.csdn.net/lzyzsd/article/details/50110355" target="_blank" rel="noopener">RxJava基本流程和lift源码分析</a><br><a id="more"></a><br>下面是系列操作示例，一步一步优化代码，适合敲Demo<br><a href="http://blog.csdn.net/lzyzsd/article/details/41833541" target="_blank" rel="noopener">深入浅出RxJava（一：基础篇）</a><br><a href="http://blog.csdn.net/lzyzsd/article/details/44094895" target="_blank" rel="noopener">深入浅出RxJava (二：操作符)</a><br><a href="http://blog.csdn.net/lzyzsd/article/details/44891933" target="_blank" rel="noopener">深入浅出RxJava (三–响应式的好处)</a><br><a href="http://blog.csdn.net/lzyzsd/article/details/45033611" target="_blank" rel="noopener">深入浅出RxJava (四-在Android中使用响应式编程)</a>    </p>
 <p>——hi大头鬼hi</p>
 <hr>
 <p>看完以上，对RxJava的原理和基本使用就差不多了，剩下的就是API的学习和实践进阶了！</p>
-<p>##二、实践进阶</p>
-<p><a href="http://gank.io/post/56e80c2c677659311bed9841" target="_blank" rel="noopener">RxJava 与 Retrofit 结合的最佳实践</a>    </p>
+<h2 id="二、实践进阶"><a href="#二、实践进阶" class="headerlink" title="二、实践进阶"></a>二、实践进阶</h2><p><a href="http://gank.io/post/56e80c2c677659311bed9841" target="_blank" rel="noopener">RxJava 与 Retrofit 结合的最佳实践</a>    </p>
 <p><a href="http://liuguangqiang.com/android/2016/04/21/Retrofit2+RxJava+LoganSquare%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" target="_blank" rel="noopener">Retrofit2+RxJava+LoganSquare最佳实践</a>    </p>
 <p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1122/3711.html" target="_blank" rel="noopener">Rxlifecycle使用详解，解决RxJava内存泄露问题</a>    </p>
 <p><a href="http://www.zuimoban.com/jiaocheng/android/3776.html" target="_blank" rel="noopener">使用RxJava优雅的处理服务器返回异常</a>    </p>
@@ -358,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三、API"><span class="toc-number">1.</span> <span class="toc-text">三、API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考Demo"><span class="toc-number">2.</span> <span class="toc-text">参考Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#库"><span class="toc-number">3.</span> <span class="toc-text">库</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、入门"><span class="toc-number">1.</span> <span class="toc-text">一、入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实践进阶"><span class="toc-number">2.</span> <span class="toc-text">二、实践进阶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、API"><span class="toc-number">3.</span> <span class="toc-text">三、API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考Demo"><span class="toc-number">4.</span> <span class="toc-text">参考Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#库"><span class="toc-number">5.</span> <span class="toc-text">库</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -478,11 +477,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +513,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
+                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,11 +521,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
+                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +533,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RxJava</a>
               </li>
              
@@ -546,15 +545,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Axios</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">
