@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-1b6ca27dd74468c0ff997024a8cd297d_hd.jpg">
 <meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=602a9a7ac11349547e4be062667ebe60/3bf33a87e950352af8a907f35943fbf2b3118b04.jpg">
 <meta property="og:image" content="https://travis-ci.org/tychio/dialog.png?branch=master">
-<meta property="og:updated_time" content="2018-03-07T03:08:50.972Z">
+<meta property="og:updated_time" content="2018-03-07T03:18:46.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端单元测试详解(一)__Why Test &amp; E2E Test">
 <meta name="twitter:description" content="1 概念1.1 单元测试 Search in Wikipedia： In computer programming, unit testing is a method by which individual units of source code, sets of one or more computer program modules together with associated cont">
@@ -262,7 +262,7 @@
 <li>构建基于Selenium WebDriver之上，且围绕着Selenium WebDriver进行封装。</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'my app'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    browser().navigateTo(<span class="string">'../../app/notes.html'</span>);     <span class="comment">// 首先导航到主要页面</span></div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">var</span> oldCount = <span class="number">-1</span>;</div><div class="line"></div><div class="line">  it(<span class="string">"entering note and performing click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    element(<span class="string">'ul'</span>).query(<span class="function"><span class="keyword">function</span>(<span class="params">$el, done</span>) </span>&#123;         <span class="comment">// 选择了ul元素并且记录了其中有哦多少个初始化项目</span></div><div class="line">      oldCount = $el.children().length;</div><div class="line">      done();</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    input(<span class="string">'note'</span>).enter(<span class="string">'test data'</span>);                 <span class="comment">// 文本框中输入一个笔记，HTML中input 设置为 ng-model=’note‘</span></div><div class="line"></div><div class="line">    element(<span class="string">'button'</span>).query(<span class="function"><span class="keyword">function</span>(<span class="params">$el, done</span>) </span>&#123;     <span class="comment">// 对按钮进行了一次点击</span></div><div class="line">      $el.click();</div><div class="line">      done();</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  it(<span class="string">'是否新增了'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    expect(repeater(<span class="string">'ul li'</span>).count()).toBe(oldCount + <span class="number">1</span>);</div><div class="line">  &#125;);        </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="4-5-单元测试API用例"><a href="#4-5-单元测试API用例" class="headerlink" title="4.5 单元测试API用例"></a>4.5 单元测试API用例</h4><p>见 <a href="">前端单元测试详解(二)__单元测试实例：JavaScript VUE/AngularJs &amp; Jasmine</a></p>
+<h4 id="4-5-单元测试API用例"><a href="#4-5-单元测试API用例" class="headerlink" title="4.5 单元测试API用例"></a>4.5 单元测试API用例</h4><p>见 <a href="https://linmiwi.github.io/2018/01/30/JavaScript_Uint_Test_2/">前端单元测试详解(二)__单元测试实例：JavaScript VUE/AngularJs &amp; Jasmine</a></p>
 <h3 id="5-参考文章"><a href="#5-参考文章" class="headerlink" title="5 参考文章"></a>5 参考文章</h3><p><a href="https://segmentfault.com/a/1190000000317146" target="_blank" rel="noopener">关于前端开发谈谈单元测试</a>_推荐（含持续集成测试，例 <a href="https://travis-ci.org/tychio/dialog" target="_blank" rel="noopener"><img src="https://travis-ci.org/tychio/dialog.png?branch=master" alt="Build Status"></a>）<br><a href="http://blog.csdn.net/happylee6688/article/details/37962283" target="_blank" rel="noopener">谈谈单元测试之（一）：为什么要进行烦人的单元测试？</a><br><a href="https://www.cnblogs.com/bigbrother1984/p/4599915.html" target="_blank" rel="noopener">前端单元测试总结</a><br><a href="https://www.leiphone.com/news/201406/5-great-front-end-dev-tools.html" target="_blank" rel="noopener">五个值得尝试的前端开发工具</a><br><a href="https://segmentfault.com/a/1190000011484304" target="_blank" rel="noopener">karma+mocha+webpack3 搭建 vue2 单元测试环境</a><br><a href="https://cn.vuejs.org/v2/guide/unit-testing.html#%E9%85%8D%E7%BD%AE%E5%92%8C%E5%B7%A5%E5%85%B7" target="_blank" rel="noopener">VUE官网单元测试说明</a><br><a href="http://blog.csdn.net/hsany330/article/details/73643572" target="_blank" rel="noopener">Vue单元测试起步</a>_Karma插件说明可以看这里<br><a href="https://www.jianshu.com/p/45e8c2b26309" target="_blank" rel="noopener">Vue单元测试case写法</a><br><a href="https://www.cnblogs.com/Wolfmanlq/p/8012847.html" target="_blank" rel="noopener">前端测试框架Jest系列教程</a><br><a href="https://www.zhihu.com/question/51764943?from=profile_question_card" target="_blank" rel="noopener">怎么为大中型的vue.js项目编写e2e测试</a><br><a href="http://g00glen00b.be/e2e-testing-nightwatch-js/" target="_blank" rel="noopener">E2E testing with Nightwatch.js</a><br><a href="http://blog.csdn.net/anlegor/article/details/22111453" target="_blank" rel="noopener">使用Nightwatch.js做基于浏览器的web应用自动测试</a><br><a href="https://www.cnblogs.com/cqhaibin/p/6581350.html" target="_blank" rel="noopener">Webpack单元测试，e2e测试</a><br><a href="https://zhidao.baidu.com/question/1737475901832244827.html" target="_blank" rel="noopener">vue-cli 如何去掉单元测试</a><br><a href="http://blog.csdn.net/huwei2003/article/details/48493977" target="_blank" rel="noopener">安装protractor进行前端自动化测试-web ui自动化测试</a><br><a href="http://blog.csdn.net/cyjs1988/article/details/77104537" target="_blank" rel="noopener">使用Nodejs+Protractor搭建测试环境+Protractor的安装及其遇到的问题</a><br><a href="https://www.jianshu.com/p/b71bbf91021c" target="_blank" rel="noopener">最受欢迎的 5 款 Node.js 端到端测试框架</a></p>
 
       
@@ -536,7 +536,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Emoji</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Colorpicker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Unit Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,23 +580,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color1">Karma</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dagger</a>
+                <a href="javascript:void(0)" class="js-tag color1">Video</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Unit Test</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
+                <a href="javascript:void(0)" class="js-tag color3">Ueditor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,7 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RAP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,23 +624,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Emoji</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Colorpicker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RAP</a>
+                <a href="javascript:void(0)" class="js-tag color4">Log</a>
               </li>
             
             <div class="clearfix"></div>
