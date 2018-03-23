@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://linmiwi.github.io/assets/weex/Weex_Pre_Mind_Map.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/weex/Weex_Vue_Mind_Map.png">
-<meta property="og:updated_time" content="2018-03-23T07:08:58.289Z">
+<meta property="og:updated_time" content="2018-03-23T07:13:16.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Weex入门导读">
 <meta name="twitter:description" content="使用Weex开发Native App，对于纯展示类App确实很方便，前端人员开发很便捷，原生开发环境配置后基本一步到位。不过涉及到与原生的交互（含细节、硬件等），就需要Native介入。在开发Web端时，非内置组件、模块同样要进行Html扩展，这是因为虽然语法上和Html标签基本一致，但实际上都只是Weex提供的，而非Html标签。实际上，在多数Weex应用中，更多的是混合开发，Weex作为Nat">
@@ -186,9 +186,9 @@
 </blockquote>
 <p><img src="https://linmiwi.github.io/assets/weex/Weex_Vue_Mind_Map.png" alt="Weex中使用Vue脑图"></p>
 <h3 id="推荐查阅"><a href="#推荐查阅" class="headerlink" title="推荐查阅"></a>推荐查阅</h3><p><a href="http://weex.apache.org/" target="_blank" rel="noopener">Weex 官网</a><br><a href="https://zhuanlan.zhihu.com/p/25289806" target="_blank" rel="noopener">Weex 入坑指南：Native App 的运行与构建</a><br><a href="http://www.cocoachina.com/programmer/20171013/20790.html?utm_source=debugrun&amp;utm_medium=referral" target="_blank" rel="noopener">网易严选App感受Weex开发</a>–<a href="https://github.com/zwwill/yanxuan-weex-demo" target="_blank" rel="noopener">GitHub</a><br><a href="https://bmfe.github.io/eros-docs/#/zh-cn/" target="_blank" rel="noopener">EROS 文档</a>–基于 weex 封装面向前端的 vue 写法的解决方案<br><a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank" rel="noopener">Weex Ui</a>–基于 Weex 的富交互、轻量级、高性能的 UI 组件库<br><a href="https://alibaba.github.io/bindingx/guide/cn_introduce" target="_blank" rel="noopener">BindingX</a>–解决weex和React Native上富交互问题的一种解决方案<br><a href="https://alibaba.github.io/weex-ui/#/cn/weex-ui-weex-conf-2018" target="_blank" rel="noopener">飞猪为Weex的背书</a></p>
-<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><h5 id="Q1：npm-amp-node-js-版本问题"><a href="#Q1：npm-amp-node-js-版本问题" class="headerlink" title="Q1：npm &amp;  node.js 版本问题"></a>Q1：npm &amp;  node.js 版本问题</h5><p><strong>A：</strong> npm要求v5.0+，通过<figure class="highlight plain"><figcaption><span>install -g npm```更新。参考[Node升级到最新稳定版方法](http://blog.csdn.net/baidu_25797177/article/details/56664484)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### Q2: “...cocoapods-build: No such file or directory”</div></pre></td></tr></table></figure></p>
-<p>Error:Error: Command failed:     /Users/miwi/.xtoolkit/node_modules/weexpack/lib/build/lib/cocoapods-build . Debug<br>/bin/sh: /Users/miwi/.xtoolkit/node_modules/weexpack/lib/build/lib/cocoapods-build: No such file or directory<br>…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**A：** 1、未安装请先安装CocoaPods；2、进入platforms/ios执行```pod install```。</div><div class="line"></div><div class="line">##### Q3: 卡在“Setting up CocoaPods”</div></pre></td></tr></table></figure></p>
-<p>Update all pods<br>Updating local specs repositories<br>Setting up CocoaPods master repo<br>  $ /usr/bin/git clone <a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="noopener">https://github.com/CocoaPods/Specs.git</a> master –progress<br>14:04:02 : Reloading page…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">**A：** 这是因为淘宝镜像以及CocoaPods达200M之大，处理方式：</div><div class="line">- 方法一、git clone方法安装cocoapods</div></pre></td></tr></table></figure></p>
+<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><h5 id="Q1：npm-amp-node-js-版本问题"><a href="#Q1：npm-amp-node-js-版本问题" class="headerlink" title="Q1：npm &amp;  node.js 版本问题"></a>Q1：npm &amp;  node.js 版本问题</h5><p><strong>A：</strong> npm要求v5.0+，通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g npm</div></pre></td></tr></table></figure></p>
+<p>更新。参考<a href="http://blog.csdn.net/baidu_25797177/article/details/56664484" target="_blank" rel="noopener">Node升级到最新稳定版方法</a></p>
+<h5 id="Q2-“…cocoapods-build-No-such-file-or-directory”"><a href="#Q2-“…cocoapods-build-No-such-file-or-directory”" class="headerlink" title="Q2: “…cocoapods-build: No such file or directory”"></a>Q2: “…cocoapods-build: No such file or directory”</h5><p><strong>A：</strong> 1、未安装请先安装CocoaPods；2、进入platforms/ios执行<figure class="highlight plain"><figcaption><span>install```。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### Q3: 卡在“Setting up CocoaPods”</div><div class="line">&gt;Update all pods</div><div class="line">&gt;Updating local specs repositories</div><div class="line">&gt;Setting up CocoaPods master repo</div><div class="line">&gt;  $ /usr/bin/git clone https://github.com/CocoaPods/Specs.git master --progress</div><div class="line">&gt;14:04:02 : Reloading page...</div><div class="line"></div><div class="line">**A：** 这是因为淘宝镜像以及CocoaPods达200M之大，处理方式：</div><div class="line">- 方法一、git clone方法安装cocoapods</div></pre></td></tr></table></figure></p>
 <p>cd ~/.cocoapods/repos  // 进入该目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">若没有以上目录，执行下面指令，出现.cocoapods的目录后可以ctrl+c终止安装。</div></pre></td></tr></table></figure></p>
 <p>sudo gem install cocoapods   // 常规的安装方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">进入到~/.cocoapods/repos的目录:</div></pre></td></tr></table></figure></p>
 <p>git clone <a href="https://github.com/CocoaPods/Specs" target="_blank" rel="noopener">https://github.com/CocoaPods/Specs</a><br>// 其他镜像：<a href="https://gitclub.cn/CocoaPods/Specs" target="_blank" rel="noopener">https://gitclub.cn/CocoaPods/Specs</a> 推荐<br>//         <a href="https://git.coding.net/CocoaPods/Specs.git" target="_blank" rel="noopener">https://git.coding.net/CocoaPods/Specs.git</a><br>//         <a href="https://code.aliyun.com/Magi/CocoaPods.git" target="_blank" rel="noopener">https://code.aliyun.com/Magi/CocoaPods.git</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">完成后，执行```open .```打开当前目录repos。</div><div class="line">然后把Specs目录改名为master即可。    </div><div class="line">注意目录为~/.cocoapods/repos/master/Specs的层级。    </div><div class="line">如果clone慢，直接上github下载到对应目录即可。</div><div class="line"></div><div class="line">- 方法二、变更镜像（不推荐，超级超级慢，建议用上面那种方法安装）</div></pre></td></tr></table></figure></p>
@@ -361,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐查阅"><span class="toc-number">1.</span> <span class="toc-text">推荐查阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题："><span class="toc-number">2.</span> <span class="toc-text">问题：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Q1：npm-amp-node-js-版本问题"><span class="toc-number">2.0.1.</span> <span class="toc-text">Q1：npm &amp;  node.js 版本问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">3.</span> <span class="toc-text">参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐查阅"><span class="toc-number">1.</span> <span class="toc-text">推荐查阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题："><span class="toc-number">2.</span> <span class="toc-text">问题：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Q1：npm-amp-node-js-版本问题"><span class="toc-number">2.0.1.</span> <span class="toc-text">Q1：npm &amp;  node.js 版本问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q2-“…cocoapods-build-No-such-file-or-directory”"><span class="toc-number">2.0.2.</span> <span class="toc-text">Q2: “…cocoapods-build: No such file or directory”</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">3.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -473,6 +473,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -481,15 +485,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,10 +514,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Unit Test</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,19 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">E2E Test</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RAP</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,6 +562,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RAP</a>
               </li>
              
               <li class="article-tag-list-item">
