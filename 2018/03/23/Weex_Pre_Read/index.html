@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://linmiwi.github.io/assets/weex/Weex_Pre_Mind_Map.png">
 <meta property="og:image" content="https://linmiwi.github.io/assets/weex/Weex_Vue_Mind_Map.png">
-<meta property="og:updated_time" content="2018-03-23T07:14:50.134Z">
+<meta property="og:updated_time" content="2018-03-23T07:22:19.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Weex入门导读">
 <meta name="twitter:description" content="使用Weex开发Native App，对于纯展示类App确实很方便，前端人员开发很便捷，原生开发环境配置后基本一步到位。不过涉及到与原生的交互（含细节、硬件等），就需要Native介入。在开发Web端时，非内置组件、模块同样要进行Html扩展，这是因为虽然语法上和Html标签基本一致，但实际上都只是Weex提供的，而非Html标签。实际上，在多数Weex应用中，更多的是混合开发，Weex作为Nat">
@@ -199,15 +199,24 @@
 </ul>
 <p>若没有以上目录，执行下面指令，出现.cocoapods的目录后可以ctrl+c终止安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods   // 常规的安装方法</div></pre></td></tr></table></figure></p>
 <p>进入到~/.cocoapods/repos的目录:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/CocoaPods/Specs</div><div class="line">// 其他镜像：https://gitclub.cn/CocoaPods/Specs 推荐</div><div class="line">//         https://git.coding.net/CocoaPods/Specs.git</div><div class="line">//         https://code.aliyun.com/Magi/CocoaPods.git</div></pre></td></tr></table></figure></p>
-<p>完成后，执行<figure class="highlight plain"><figcaption><span>.```打开当前目录repos。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">然后把Specs目录改名为master即可。    </div><div class="line">注意目录为~/.cocoapods/repos/master/Specs的层级。    </div><div class="line">如果clone慢，直接上github下载到对应目录即可。</div><div class="line"></div><div class="line">- 方法二、变更镜像（不推荐，超级超级慢，建议用上面那种方法安装）</div></pre></td></tr></table></figure></p>
-<p>$gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="noopener">https://rubygems.org/</a>  // 移除现有Ruby默认源<br>$gem sources -a <a href="https://gems.ruby-china.org/" target="_blank" rel="noopener">https://gems.ruby-china.org/</a> // 添加新镜像<br>$gem sources -l // 验证新源是否替换成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">安装CocoaPods:    </div><div class="line">(1) ```sudo gem install cocoapods``` 备注：苹果系统升级 OS X EL Capitan 后改为 ```sudo gem install -n /usr/local/bin cocoapods```    </div><div class="line">(2) ```pod setup```  </div><div class="line">更新gem</div></pre></td></tr></table></figure></p>
-<p>sudo gem update –system<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### Q4: Unable to add a source with url</div></pre></td></tr></table></figure></p>
-<p>[!] Unable to add a source with url <code>git@github.com/CocoaPods/Specs.git</code> named <code>master-1</code>.<br>You can try adding it manually in <code>~/.cocoapods/repos</code> or via <code>pod repo add</code>.<br>? Choose one of the following devices (Use arrow keys)<br>? Choose one of the following devices iPhone 5s ios: 11.2<br>14:55:18 : Buiding project…<br><strong> BUILD FAILED </strong><br>The following build commands failed:<br>    PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock build/Build/Intermediates.noindex/WeexDemo.build/Debug-iphonesimulator/WeexDemo.build/Script-CD3187D7C603AFBFADBBAE7F.sh<br>(1 failure)<br>14:55:21 : Error:Error: Command failed: xcodebuild -workspace WeexDemo.xcworkspace -scheme WeexDemo -configuration Debug -destination id=46F10D2C-CE0F-48BE-9941-75A80F3EF084 -sdk iphonesimulator -derivedDataPath build clean build<br><strong> BUILD FAILED </strong><br>The following build commands failed:<br>    PhaseScriptExecution [CP]\ Check\ Pods\ Manifest.lock build/Build/Intermediates.noindex/WeexDemo.build/Debug-iphonesimulator/WeexDemo.build/Script-CD3187D7C603AFBFADBBAE7F.sh<br>(1 failure)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**A：** 运行```pod setup```，如果失败运行```pod search afn```查看是否成功，成功则将项目目录下 platforms/ios/Pods/Podfile文件编辑修改source为“https://github.com/CocoaPods/Specs.git”。</div><div class="line"></div><div class="line">##### Q5: iphone虚拟机运行正常，真机运行失败。</div></pre></td></tr></table></figure></p>
-<p>Error:weex don’t support run on real device, please use simulator on Xcode.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**A：** 无证书真机运行请参考[iOS 无证书真机调试](http://blog.csdn.net/u010545480/article/details/51085639)使用xcode打开项目目录下platforms/ios/WeexDemo.xcworkspace，对项目进行设置并运行。</div><div class="line"></div><div class="line">##### Q6: no such file or directory, open &apos;...demo/plugins/plugins.json 错误</div></pre></td></tr></table></figure></p>
-<p>11:44:18 : Adding ios weexpack-ios@4.1.6 …<br>11:44:18 : Success!<br>11:44:18 : Error: ENOENT: no such file or directory, open ‘/Users/…/Documents/weex_project/yanxuan-weex-demo/plugins/plugins.json’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**A：** 与toolkit版本有关，旧版本plugins中的默认文件只有Readme，新版本中只有plugins.json，默认内容为</div></pre></td></tr></table></figure></p>
-<p>{<br>  “ios”: [],<br>  “web”: [],<br>  “android”: []<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### Q7: Entry, &quot;:CFBundleIdentifier&quot;, Does Not Exist 错误</div></pre></td></tr></table></figure></p>
-<p>11:49:10 : Run iOS Simulator..<br>Print: Entry, “:CFBundleIdentifier”, Does Not Exist<br>11:49:10 : Error:Error: Command failed: /usr/libexec/PlistBuddy -c Print:CFBundleIdentifier build/Build/Products/Debug-iphonesimulator/WeexDemo.app/Info.plist<br>Print: Entry, “:CFBundleIdentifier”, Does Not Exist…<br>```</p>
-<p><strong>A：</strong> 对ios.config.json重新设置AppName、AppId后运行成功</p>
+<p>完成后，执行[open .]打开当前目录repos。<br>然后把Specs目录改名为master即可。<br>注意目录为~/.cocoapods/repos/master/Specs的层级。<br>如果clone慢，直接上github下载到对应目录即可。</p>
+<ul>
+<li>方法二、变更镜像（不推荐，超级超级慢，建议用上面那种方法安装）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$gem sources --remove https://rubygems.org/  // 移除现有Ruby默认源</div><div class="line">$gem sources -a https://gems.ruby-china.org/ // 添加新镜像</div><div class="line">$gem sources -l // 验证新源是否替换成功</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>安装CocoaPods:<br>(1) [sudo gem install cocoapods] 备注：苹果系统升级 OS X EL Capitan 后改为 [sudo gem install -n /usr/local/bin cocoapods]<br>(2) [pod setup]</p>
+<p>更新gem<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem update --system</div></pre></td></tr></table></figure></p>
+<h5 id="Q4-Unable-to-add-a-source-with-url"><a href="#Q4-Unable-to-add-a-source-with-url" class="headerlink" title="Q4: Unable to add a source with url"></a>Q4: Unable to add a source with url</h5><blockquote>
+<p>[!] Unable to add a source with url <code>git@github.com/CocoaPods/Specs.git</code> named <code>master-1</code>.<br>You can try adding it manually in <code>~/.cocoapods/repos</code> or via <code>pod repo add</code>.<br>14:55:18 : Buiding project…<br><strong> BUILD FAILED </strong></p>
+</blockquote>
+<p><strong>A：</strong> 运行[pod setup]，如果失败运行[pod search afn]查看是否成功，成功则将项目目录下 platforms/ios/Pods/Podfile文件编辑修改source为“<a href="https://github.com/CocoaPods/Specs.git”。" target="_blank" rel="noopener">https://github.com/CocoaPods/Specs.git”。</a></p>
+<h5 id="Q5-iphone虚拟机运行正常，真机运行失败。"><a href="#Q5-iphone虚拟机运行正常，真机运行失败。" class="headerlink" title="Q5: iphone虚拟机运行正常，真机运行失败。"></a>Q5: iphone虚拟机运行正常，真机运行失败。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error:weex don&apos;t support run on real device, please use simulator on Xcode.</div></pre></td></tr></table></figure>
+<p><strong>A：</strong> 无证书真机运行请参考<a href="http://blog.csdn.net/u010545480/article/details/51085639" target="_blank" rel="noopener">iOS 无证书真机调试</a>使用xcode打开项目目录下platforms/ios/WeexDemo.xcworkspace，对项目进行设置并运行。</p>
+<h5 id="Q6-no-such-file-or-directory-open-‘…demo-plugins-plugins-json-错误"><a href="#Q6-no-such-file-or-directory-open-‘…demo-plugins-plugins-json-错误" class="headerlink" title="Q6: no such file or directory, open ‘…demo/plugins/plugins.json 错误"></a>Q6: no such file or directory, open ‘…demo/plugins/plugins.json 错误</h5><blockquote>
+<p>11:44:18 : Adding ios weexpack-ios@4.1.6 …<br>11:44:18 : Success!<br>11:44:18 : Error: ENOENT: no such file or directory, open &gt;’/Users/…/Documents/weex_project/yanxuan-weex-demo/plugins/plugins.json’</p>
+</blockquote>
+<p><strong>A：</strong> 与toolkit版本有关，旧版本plugins中的默认文件只有Readme，新版本中只有plugins.json，默认内容为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;ios&quot;: [],</div><div class="line">  &quot;web&quot;: [],</div><div class="line">  &quot;android&quot;: []</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Q7-Entry-“-CFBundleIdentifier”-Does-Not-Exist-错误"><a href="#Q7-Entry-“-CFBundleIdentifier”-Does-Not-Exist-错误" class="headerlink" title="Q7: Entry, “:CFBundleIdentifier”, Does Not Exist 错误"></a>Q7: Entry, “:CFBundleIdentifier”, Does Not Exist 错误</h5><p><strong>A：</strong> 对ios.config.json重新设置AppName、AppId后运行成功</p>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="http://dotwe.org/vue/" target="_blank" rel="noopener">在线编写代码的平台</a><br><a href="https://hanks10100.github.io/weex-vue-examples/" target="_blank" rel="noopener">代码示例(Examples)</a>    </p>
 <p><a href="http://www.fly63.com/article/detial/243" target="_blank" rel="noopener">Weex 和 React Native的区别和比较</a><br><a href="https://www.cnblogs.com/fantasy3588/p/6068641.html" target="_blank" rel="noopener">CocoaPods 的简单快速安装方法(Setting up CocoaPods master repo 卡着不动，是因为淘宝镜像已经不能用)</a><br><a href="http://blog.csdn.net/ycf03211230/article/details/54584320" target="_blank" rel="noopener">终端 setting up cocoapods master repo 不动</a><br><a href="https://github.com/weexteam/weex-pack/wiki/%E5%A6%82%E4%BD%95%E7%94%A8weexpack%E5%88%9B%E5%BB%BAweex%E9%A1%B9%E7%9B%AE%E5%B9%B6%E6%9E%84%E5%BB%BAapp" target="_blank" rel="noopener">如何用weexpack创建weex项目并构建app</a><br><a href="https://zhuanlan.zhihu.com/p/25227030" target="_blank" rel="noopener">Weex 入坑指南：手把手编译 Playground</a><br><a href="http://blog.csdn.net/lincsdnnet/article/details/53725303" target="_blank" rel="noopener">iOS - 解决Unable to add a source with url <code>https://github.com/CocoaPods/Specs.git</code> named</a><br><a href="http://blog.csdn.net/callzjy/article/details/54743749" target="_blank" rel="noopener">Unable to add a source with url <code>https://github.com/CocoaPods/Specs.git</code> named <code>master-1</code>.</a><br><a href="https://www.jianshu.com/p/a502eb72b689" target="_blank" rel="noopener">Failed to connect to GitHub to update the CocoaPods/Specs specs repo 问题</a><br><a href="http://www.cocoachina.com/programmer/20171013/20790.html?utm_source=debugrun&amp;utm_medium=referral" target="_blank" rel="noopener">网易严选App感受Weex开发</a>–<a href="https://github.com/zwwill/yanxuan-weex-demo" target="_blank" rel="noopener">GitHub</a><br><a href="http://blog.csdn.net/u010545480/article/details/51085639" target="_blank" rel="noopener">iOS 无证书真机调试</a><br><a href="http://www.bubuko.com/infodetail-2324561.html" target="_blank" rel="noopener">Weex 解决Print: Entry, “:CFBundleIdentifier”, Does Not Exist 错误方法</a><br><a href="http://blog.csdn.net/u013474104/article/details/56285721" target="_blank" rel="noopener">Weex入门教程之7，从本地加载js、从服务器加载js文件显示</a><br><a href="http://blog.csdn.net/mengzuixilou/article/details/52710488" target="_blank" rel="noopener">一步步教你学Weex Android加载远程服务器配置</a></p>
 
@@ -369,7 +378,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐查阅"><span class="toc-number">1.</span> <span class="toc-text">推荐查阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题："><span class="toc-number">2.</span> <span class="toc-text">问题：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Q1：npm-amp-node-js-版本问题"><span class="toc-number">2.0.1.</span> <span class="toc-text">Q1：npm &amp;  node.js 版本问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q2-“…cocoapods-build-No-such-file-or-directory”"><span class="toc-number">2.0.2.</span> <span class="toc-text">Q2: “…cocoapods-build: No such file or directory”</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q3-卡在“Setting-up-CocoaPods”"><span class="toc-number">2.0.3.</span> <span class="toc-text">Q3: 卡在“Setting up CocoaPods”</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">3.</span> <span class="toc-text">参考文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐查阅"><span class="toc-number">1.</span> <span class="toc-text">推荐查阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题："><span class="toc-number">2.</span> <span class="toc-text">问题：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Q1：npm-amp-node-js-版本问题"><span class="toc-number">2.0.1.</span> <span class="toc-text">Q1：npm &amp;  node.js 版本问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q2-“…cocoapods-build-No-such-file-or-directory”"><span class="toc-number">2.0.2.</span> <span class="toc-text">Q2: “…cocoapods-build: No such file or directory”</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q3-卡在“Setting-up-CocoaPods”"><span class="toc-number">2.0.3.</span> <span class="toc-text">Q3: 卡在“Setting up CocoaPods”</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q4-Unable-to-add-a-source-with-url"><span class="toc-number">2.0.4.</span> <span class="toc-text">Q4: Unable to add a source with url</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q5-iphone虚拟机运行正常，真机运行失败。"><span class="toc-number">2.0.5.</span> <span class="toc-text">Q5: iphone虚拟机运行正常，真机运行失败。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q6-no-such-file-or-directory-open-‘…demo-plugins-plugins-json-错误"><span class="toc-number">2.0.6.</span> <span class="toc-text">Q6: no such file or directory, open ‘…demo/plugins/plugins.json 错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Q7-Entry-“-CFBundleIdentifier”-Does-Not-Exist-错误"><span class="toc-number">2.0.7.</span> <span class="toc-text">Q7: Entry, “:CFBundleIdentifier”, Does Not Exist 错误</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文章"><span class="toc-number">3.</span> <span class="toc-text">参考文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -493,6 +502,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">主题</a>
               </li>
              
@@ -510,10 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Colorpicker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DataBinding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,6 +570,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Weex</a>
               </li>
              
@@ -570,14 +587,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RAP</a>
               </li>
              
               <li class="article-tag-list-item">
