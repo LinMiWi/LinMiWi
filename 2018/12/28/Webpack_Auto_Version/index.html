@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://linmiwi.github.io">
   <title>Webpack Plugin 自动生成版本号等配置并通过前端服务器获取更新微信缓存旧代码问题 | Miwi.Lin&#39;s Blog | Miwi的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景微信H5开发中，遇到了问题：  微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs 在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误 由于需求和测试需要，支付渠道需要切换，每次为了一个配置参数却需要反复提交TAG">
+  <meta name="description" content="[TOC] 背景微信H5开发中，遇到了问题：  微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs 在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误 由于需求和测试需要，支付渠道需要切换，每次为了一个配置参数却需要反复提交TAG">
 <meta name="keywords" content="JavaScript,Vue,Webpack Plugin,自动版本号,微信缓存更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack Plugin 自动生成版本号等配置并通过前端服务器获取更新微信缓存旧代码问题">
 <meta property="og:url" content="http://linmiwi.github.io/2018/12/28/Webpack_Auto_Version/index.html">
 <meta property="og:site_name" content="Miwi.Lin&#39;s Blog | Miwi的博客">
-<meta property="og:description" content="背景微信H5开发中，遇到了问题：  微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs 在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误 由于需求和测试需要，支付渠道需要切换，每次为了一个配置参数却需要反复提交TAG">
+<meta property="og:description" content="[TOC] 背景微信H5开发中，遇到了问题：  微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs 在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误 由于需求和测试需要，支付渠道需要切换，每次为了一个配置参数却需要反复提交TAG">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-28T04:19:33.680Z">
+<meta property="og:updated_time" content="2018-12-28T04:29:04.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack Plugin 自动生成版本号等配置并通过前端服务器获取更新微信缓存旧代码问题">
-<meta name="twitter:description" content="背景微信H5开发中，遇到了问题：  微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs 在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误 由于需求和测试需要，支付渠道需要切换，每次为了一个配置参数却需要反复提交TAG">
+<meta name="twitter:description" content="[TOC] 背景微信H5开发中，遇到了问题：  微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs 在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误 由于需求和测试需要，支付渠道需要切换，每次为了一个配置参数却需要反复提交TAG">
   
     <link rel="alternative" href="/atom.xml" title="Miwi.Lin&#39;s Blog | Miwi的博客" type="application/atom+xml">
   
@@ -181,7 +181,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>微信H5开发中，遇到了问题：</p>
+        <p>[TOC]</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>微信H5开发中，遇到了问题：</p>
 <ul>
 <li>微信H5对Index.html缓存问题，使得提测过程中、发布Release版本后，用户端看到的页面依旧是缓存的html/js/cs</li>
 <li>在JavaScrip文件分包情况下，项目重新打包后，由于发布时清除了原js文件，如果html已缓存，就会出现加载不到js的错误</li>
